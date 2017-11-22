@@ -20,9 +20,9 @@ class MarkerTest extends React.Component {
     this.handleCloseInfoWindow = this.handleCloseInfoWindow.bind(this);
   }
   handleMarkerClick() {
-    this.setState({
-      isOpen: true,
-    });
+      this.setState({
+        isOpen: !this.state.isOpen,
+      });
   }
   handleCloseInfoWindow() {
     this.setState({
@@ -39,7 +39,7 @@ class MarkerTest extends React.Component {
   }
   render() {
     return (
-      <Marker position={this.props.position} icon={this.handleTypeMarker(this.props.type)} onMouseOut={this.handleCloseInfoWindow} onMouseOver={this.handleMarkerClick}>
+      <Marker position={this.props.position} icon={this.handleTypeMarker(this.props.type)} onMouseOut={this.handleMarkerClick} onMouseOver={this.handleMarkerClick}>
         {this.state.isOpen && <InfoWindow onCloseClick={this.handleCloseInfoWindow}>
           <span>Light Box</span>
         </InfoWindow>}

@@ -5,7 +5,7 @@ import MarkerTest from '../Marker/Marker.js';
 
 const MyMapComponent = compose(
   withProps({
-    googleMapURL: 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
+    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBFYsAllOA_NWZpn5zB61HvemuZ3VEGE1k&v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div style={{ width: '600px', height: '600px' }} />,
     mapElement: <div style={{ height: '100%' }} />,
