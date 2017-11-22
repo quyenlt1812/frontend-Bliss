@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-
+import InteractiveMap from './components/InteractiveMap/InteractiveMap.js';
 class App extends Component {
 render() {
     return (
     <div>
-      <button type="button" onClick={this.onClick}>Send GET /products </button>
+      <InteractiveMap/>
     </div>
     );
 }
