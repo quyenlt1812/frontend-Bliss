@@ -1,3 +1,26 @@
 language: node_js
-node_js: node
-script: yarn test && yarn build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && yarn global add serve && server -s build
+
+node_js:
+  - "8"
+
+sudo: required
+
+services:
+  - docker
+
+after_deploy:
+  - echo "done deploying"
+
+script: yarn test && yarn build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js 
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: "$SECRETACCESSKEY"
+  region: "eu-west-2"
+  app: "yoestaging"
+  env: "yoe-website"
+  bucket_name: "yoestaging"
+  on:
+    branch: master
